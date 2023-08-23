@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oxygen&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+
+    <title>Paginatation</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="paginator">
+            <button class="button1" onclick="button1()">PREV</button>
+
+            <ul>
+                <li class="link active" value="1" onclick="activeLink()">1</li>
+                <li class="link" value="2" onclick="activeLink()">2</li>
+                <li class="link" value="3" onclick="activeLink()">3</li>
+                <li class="link" value="4" onclick="activeLink()">4</li>
+                <li class="link" value="5" onclick="activeLink()">5</li>
+                <li class="link" value="6" onclick="activeLink()">6</li>
+                <li class="link" value="7" onclick="activeLink()">7</li>
+            </ul>
+            <button class="button2" onclick="button2()">NEXT</button>
+        </div>
+    </div>
+
+    <script>
+
+        let link = document.getElementsByClassName("link");
+
+        let currentValue = 1;
+
+        function activeLink() {
+            for (l of link) {
+                l.classList.remove("active");
+            }
+
+            event.target.classList.add("active");
+            currentValue = event.target.value;
+        }
+
+        function button1() {
+            if (currentValue > 1) {
+                for (l of link) {
+                    l.classList.remove("active");
+                }
+                currentValue--;
+                link[currentValue - 1].classList.add("active");
+
+            }
+        }
+
+        function button2() {
+            if (currentValue < 7) {
+                for (l of link) {
+
+                    l.classList.remove("active")
+                }
+                currentValue++;
+                link[currentValue - 1].classList.add("active")
+
+
+            }
+
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>
